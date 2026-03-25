@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/layout :: layout (~{::title}, ~{::section})">
 
+<head>
+    <title>Clientes</title>
+</head>
+
+<body>
+<section>
+
+    <h2 class="mb-4">Clientes</h2>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.cpf}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/view/customers/create" class="btn btn-primary">Novo Cliente</a>
+    <a href="/" class="btn btn-secondary">Voltar</a>
+
+</section>
 </body>
 </html>

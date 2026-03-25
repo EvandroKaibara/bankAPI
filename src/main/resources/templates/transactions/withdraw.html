@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/layout :: layout (~{::title}, ~{::section})">
 
+<head>
+    <title>Saque</title>
+</head>
+
+<body>
+<section>
+
+    <h2 class="mb-4">Saque</h2>
+
+    <form th:action="@{/view/transactions/withdraw}" method="post" class="card p-4">
+
+        <div class="mb-3">
+            <label class="form-label">Conta</label>
+            <select name="acNumber" class="form-select">
+                <option th:each="acc : ${accounts}"
+                        th:value="${acc.acNumber}"
+                        th:text="${acc.acNumber}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Valor</label>
+            <input type="number" name="amount" step="0.01" class="form-control"/>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Sacar</button>
+        <p></p>
+        <a href="/" class="btn btn-secondary">Voltar</a>
+
+    </form>
+
+</section>
 </body>
 </html>

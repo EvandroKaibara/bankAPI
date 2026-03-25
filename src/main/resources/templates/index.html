@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="fragments/layout :: layout (~{::title}, ~{::section})">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Bank API</title>
+    <title>Bank App</title>
 </head>
+
 <body>
-    <p>Bem-Vindo(a) ao Bank API</p>
+<section>
+
+    <h2 class="mb-4">Bem-vindo(a) ao Bank App</h2>
+
+    <div class="row">
+
+        <!-- CLIENTES -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-dark text-white">👤 Clientes</div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><a href="/view/customers">Listar Clientes</a></li>
+                        <li><a href="/view/customers/create">Criar Novo Cliente</a></li>
+                        <li><a href="/json/customers">JSON</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTAS -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-dark text-white">📒 Contas</div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><a href="/view/accounts">Listar Contas</a></li>
+                        <li><a href="/view/accounts/create">Criar Nova Conta</a></li>
+                        <li><a href="/json/accounts">JSON</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRANSAÇÕES -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-dark text-white">💸 Transações</div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><a href="/view/transactions/deposit">Deposito</a></li>
+                        <li><a href="/view/transactions/withdraw">Saque</a></li>
+                        <li><a href="/json/transactions/acNumber">JSON</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
 </body>
 </html>
